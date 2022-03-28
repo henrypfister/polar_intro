@@ -170,9 +170,9 @@ def awgn_p1(x: int64[:], esno_db: float64) -> (float64[:]):
     return y
 
 # Simple tests of above functions
-#print(bec_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int),0.5))
-#print(bsc_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int),0.45))
-#print(awgn_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int),3))
+#print(bec_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int64),0.5))
+#print(bsc_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int64),0.45))
+#print(awgn_p1(np.asarray([0,1,0,1,0,1,0,1],dtype=np.int64),3))
 
 
 
@@ -362,7 +362,7 @@ def test_polar(n=12, chan=None, p=0.1, M=100, f=None, T=1000, d=0.1):
         # For each block
         for i in range(M[j]):
             # Set frozen bits, add random data, and encode
-            u = f.astype(np.int)
+            u = f.astype(np.int64)
             u[A] = np.random.randint(0,2,size=k)
             x = polar_transform(u);
 
