@@ -192,7 +192,8 @@ def vnop(w1,w2):
 #   Return hard MAP decision with randomized tie breaking for P1 observation
 @vectorize([int64(float64)],nopython=True)
 def hard_dec_rr(w):
-    return np.int64((1-np.sign(1-2*w)>2*np.random.random_sample(1)).all())
+    return np.int64(((w+2e-12*np.random.random_sample(1))>0.5+1e-12).all())
+#    return np.int64((1-np.sign(1-2*w)>2*np.random.random_sample(1)).all())
 
 
 
